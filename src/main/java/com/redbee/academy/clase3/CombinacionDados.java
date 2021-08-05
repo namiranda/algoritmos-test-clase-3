@@ -36,7 +36,13 @@ public class CombinacionDados {
     public static Integer resolverCombinacionesPosiblesCon3Dados(Integer valor) {
         Integer combinaciones = 0;
 
-
+        for (int i = 1; i < valor; i++){
+            for(int j = 1; j < valor; j++){
+                for(int k = 1; k < valor; k++){
+                    if(i + j + k == valor) combinaciones++;
+                }
+            }
+        }
 
         return combinaciones;
     }

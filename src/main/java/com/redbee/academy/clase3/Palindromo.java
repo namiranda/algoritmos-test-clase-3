@@ -1,5 +1,7 @@
 package com.redbee.academy.clase3;
 
+import java.util.Locale;
+
 public class Palindromo {
 
     /**
@@ -12,7 +14,13 @@ public class Palindromo {
      * @return
      */
     public static Boolean esPalindromo(String palabra) {
-        // TODO: implementar
-        return null;
+        String nuevaPalabra = palabra.toLowerCase(Locale.ROOT).replaceAll("\\s","");
+
+        for(int i = 0; i < nuevaPalabra.length() / 2; i++){
+            if(nuevaPalabra.charAt(i) != nuevaPalabra.charAt(nuevaPalabra.length() - (i + 1) )){
+                return false;
+            }
+        }
+        return  true;
     }
 }

@@ -1,5 +1,7 @@
 package com.redbee.academy.clase3;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 public class Dolar {
@@ -29,7 +31,14 @@ public class Dolar {
      * @return
      */
     public static Float resolver(List<Float> historicoDolar) {
-        //TODO: implementar
-        return null;
+       float maximo = 0;
+
+       for(int i = 1; i < historicoDolar.size(); i++){
+           if(historicoDolar.get(i) - historicoDolar.get(i-1) > maximo){
+               maximo = historicoDolar.get(i) - historicoDolar.get(i-1);
+           }
+       }
+       return new BigDecimal(maximo).setScale(2, RoundingMode.HALF_UP).floatValue();
+
     }
 }

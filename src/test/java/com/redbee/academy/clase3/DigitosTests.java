@@ -14,4 +14,9 @@ public class DigitosTests {
     void testDigitos2() {
         Assertions.assertEquals(15, Digitos.resolver(123456789012345L));
     }
+
+    @Test
+    void testDigitos3() {
+        Assertions.assertEquals(6, Digitos.resolver(123456L));
+    }
 }

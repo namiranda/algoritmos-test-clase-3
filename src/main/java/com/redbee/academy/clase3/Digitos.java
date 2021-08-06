@@ -9,7 +9,13 @@ public class Digitos {
      * @return
      */
     public static Integer resolver(Long numero) {
-        //TODO: implementar
-        return null;
+        int digitos = 0;
+
+        for(int i = 20; i >= 1 ; i--){
+            if(numero < Math.pow(10, i)){
+                digitos = i;
+            }
+        }
+        return digitos;
     }
 }

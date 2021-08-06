@@ -1,5 +1,9 @@
 package com.redbee.academy.clase3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Cuil {
 
     /**
@@ -41,7 +45,30 @@ public class Cuil {
      * @return
      */
     public static Integer calcular(Integer tipoPersona, Integer dni) {
-        // TODO: implementar
-        return null;
+        //TODO refactorizar
+        int aux = 0;
+        int digito;
+        int suma = 0;
+        int resultado;
+        Float division;
+        List<Integer> digitosDni = new ArrayList<>();
+        List<Integer> multiplicadores =  Arrays.asList(5, 4, 3, 2, 7, 6, 5, 4, 3, 2);
+
+
+        for(int i = 10; i > 0; i--){
+            digito = (dni + tipoPersona* (int) Math.pow(10,8))/ (int) Math.pow(10, i-1);
+            digitosDni.add( digito - (aux*10) );
+            aux = digito;
+        }
+
+        for(int j = 0; j < digitosDni.size(); j++){
+            suma += digitosDni.get(j) * multiplicadores.get(j);
+        }
+
+        division = (float) suma / 11 ;
+
+        resultado = Math.round((division - division.intValue()) * 10) ;
+
+        return 11 - resultado;
     }
 }
